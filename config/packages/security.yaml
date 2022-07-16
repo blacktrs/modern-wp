@@ -1,0 +1,9 @@
+parameters:
+  AUTH_KEY: "%env(AUTH_KEY)%"
+  SECURE_AUTH_KEY: "%env(SECURE_AUTH_KEY)%"
+  LOGGED_IN_KEY: "%env(LOGGED_IN_KEY)%"
+  NONCE_KEY: "%env(NONCE_KEY)%"
+  AUTH_SALT: "%env(AUTH_SALT)%"
+  SECURE_AUTH_SALT: "%env(SECURE_AUTH_SALT)%"
+  LOGGED_IN_SALT: "%env(LOGGED_IN_SALT)%"
+  NONCE_SALT: "%env(NONCE_SALT)%"

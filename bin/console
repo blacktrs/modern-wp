@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+use App\Kernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+
+require_once \dirname(__DIR__).'/public/index.php';
+
+$kernel = Kernel::getInstance();
+
+$application = new Application($kernel);
+$application->run();

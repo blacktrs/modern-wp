@@ -1,0 +1,28 @@
+parameters:
+  router.request_context.scheme: 'https'
+  asset.request_context.secure: true
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/{Kernel.php,helpers.php}'
+
+  App\Controller\:
+    resource: '../src/Controller'
+    tags: [ 'controller.service_arguments' ]
+
+  Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+
+  kernel.listener.prefix:
+    class: Blacktrs\WPBundle\Doctrine\TablePrefix
+    calls:
+      - [ setPrefix, [ '%env(DATABASE_PREFIX)%' ] ]
+    tags:
+      - { name: doctrine.event_listener, event: loadClassMetadata, method: loadClassMetadata }
+
+

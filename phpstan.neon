@@ -1,0 +1,15 @@
+parameters:
+	level: 7
+	paths:
+		- config
+		- src
+		- tests
+	scanDirectories:
+	    - public/app/mu-plugins
+	    - public/app/plugins
+	    - public/app/themes
+	    - public/wp/wp-admin
+	    - public/wp/wp-includes
+	excludePaths:
+	    - src/Service/Blade
+	    - public/wp/wp-admin/includes/noop.php

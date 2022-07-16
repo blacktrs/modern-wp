@@ -1,0 +1,5 @@
+parameters:
+  WP_HOME: "%env(WP_HOME)%"
+  WP_SITEURL: "%env(WP_SITEURL)%"
+  app.id: "app"
+  app.restPrefix: "api"

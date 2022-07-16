@@ -1,0 +1,14 @@
+monolog:
+  handlers:
+    # this "file_log" key could be anything
+    file_log:
+      type: stream
+      # logs to var/logs/(environment).logs
+      path: "%kernel.logs_dir%/%kernel.environment%.logs"
+      # logs *all* messages (debug is lowest level)
+      level: debug
+
+    syslog_handler:
+      type: syslog
+      # logs error-level messages and higher
+      level: error
