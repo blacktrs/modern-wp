@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<psalm
+        errorLevel="3"
+        resolveFromConfigFile="true"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="config"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <extraFiles>
+        <directory name="public/app/mu-plugins"/>
+        <directory name="public/app/plugins"/>
+        <directory name="public/app/themes"/>
+        <directory name="public/wp/wp-admin"/>
+        <directory name="public/wp/wp-includes"/>
+        <file name="public/wp/wp-admin/includes/noop.php"/>
+    </extraFiles>
+    <stubs>
+        <file name="vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"/>
+    </stubs>
+    <plugins>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+        <pluginClass class="Weirdan\DoctrinePsalmPlugin\Plugin"/>
+        <pluginClass class="PsalmWordPress\Plugin"/>
+    </plugins>
+</psalm>
