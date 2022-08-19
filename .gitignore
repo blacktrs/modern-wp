@@ -1,7 +1,6 @@
 # Generic
 /.idea
 /.ddev
-rector.php
 
 # Docker
 docker-compose.yml
@@ -38,10 +37,6 @@ public/.htaccess
 # WP-CLI
 wp-cli.local.yml
 
-# PHP CS Fixer
-.php-cs-fixer.cache
-.php-cs-fixer.php
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -73,3 +68,15 @@ wp-cli.local.yml
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> vimeo/psalm ###
+psalm.xml
+###< vimeo/psalm ###
+
+###> rectorphp/rector ###
+rector.php
+###< rectorphp/rector ###
