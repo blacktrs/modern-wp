@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Table(name: 'links', indexes: [new ORM\Index(columns: ['link_visible'], name: 'link_visible')])]
 #[ORM\Entity]
@@ -40,7 +41,7 @@ class WpLinks
     private string|int $linkRating = '0';
 
     #[ORM\Column(name: 'link_updated', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $linkUpdated = '0000-00-00 00:00:00';
+    private string|DateTime $linkUpdated = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'link_rel', type: 'string', length: 255, nullable: false)]
     private string $linkRel = '';
@@ -131,12 +132,12 @@ class WpLinks
         $this->linkRating = $linkRating;
     }
 
-    public function getLinkUpdated(): \DateTime|string
+    public function getLinkUpdated(): DateTime|string
     {
         return $this->linkUpdated;
     }
 
-    public function setLinkUpdated(\DateTime|string $linkUpdated): void
+    public function setLinkUpdated(DateTime|string $linkUpdated): void
     {
         $this->linkUpdated = $linkUpdated;
     }

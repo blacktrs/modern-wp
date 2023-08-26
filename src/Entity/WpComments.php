@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Table(name: 'comments', indexes: [
     new ORM\Index(
@@ -40,10 +41,10 @@ class WpComments
     private string $commentAuthorIp = '';
 
     #[ORM\Column(name: 'comment_date', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $commentDate = '0000-00-00 00:00:00';
+    private string|DateTime $commentDate = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'comment_date_gmt', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $commentDateGmt = '0000-00-00 00:00:00';
+    private string|DateTime $commentDateGmt = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'comment_content', type: 'text', length: 65535, nullable: false)]
     private string $commentContent;
@@ -106,22 +107,22 @@ class WpComments
         $this->commentAuthorIp = $commentAuthorIp;
     }
 
-    public function getCommentDate(): \DateTime|string
+    public function getCommentDate(): DateTime|string
     {
         return $this->commentDate;
     }
 
-    public function setCommentDate(\DateTime|string $commentDate): void
+    public function setCommentDate(DateTime|string $commentDate): void
     {
         $this->commentDate = $commentDate;
     }
 
-    public function getCommentDateGmt(): \DateTime|string
+    public function getCommentDateGmt(): DateTime|string
     {
         return $this->commentDateGmt;
     }
 
-    public function setCommentDateGmt(\DateTime|string $commentDateGmt): void
+    public function setCommentDateGmt(DateTime|string $commentDateGmt): void
     {
         $this->commentDateGmt = $commentDateGmt;
     }

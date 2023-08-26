@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Rest;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\{JsonResponse, Request};
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(path: '/admin/dashboard')]
