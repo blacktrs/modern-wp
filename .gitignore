@@ -1,6 +1,8 @@
 # Generic
 /.idea
 /.ddev
+/.phpunit.cache
+/.psalm.cache
 
 # Docker
 docker-compose.yml

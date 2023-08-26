@@ -10,13 +10,12 @@ declare(strict_types=1);
  * can.
  */
 
-use function App\env;
-
 use App\Kernel;
 use Blacktrs\WPBundle\Loader\ConfigLoader;
 use Symfony\Component\Dotenv\Dotenv;
-use Symfony\Component\ErrorHandler\Debug;
-use Symfony\Component\ErrorHandler\ErrorHandler;
+use Symfony\Component\ErrorHandler\{Debug, ErrorHandler};
+
+use function App\env;
 
 /**
  * Directory containing all the site's files.
@@ -54,7 +53,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
     $_SERVER['HTTPS'] = 'on';
 }
 
-if (\defined('WP_ADMIN') && WP_ADMIN) {
+if (\defined('WP_ADMIN') && WP_ADMIN === true) {
     ErrorHandler::register(new ErrorHandler(debug: true));
 }
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Table(name: 'users', indexes: [
     new ORM\Index(columns: ['user_email'], name: 'user_email'),
@@ -35,7 +36,7 @@ class WpUsers
     private string $userUrl = '';
 
     #[ORM\Column(name: 'user_registered', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $userRegistered = '0000-00-00 00:00:00';
+    private string|DateTime $userRegistered = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'user_activation_key', type: 'string', length: 255, nullable: false)]
     private string $userActivationKey = '';
@@ -96,12 +97,12 @@ class WpUsers
         $this->userUrl = $userUrl;
     }
 
-    public function getUserRegistered(): \DateTime|string
+    public function getUserRegistered(): DateTime|string
     {
         return $this->userRegistered;
     }
 
-    public function setUserRegistered(\DateTime|string $userRegistered): void
+    public function setUserRegistered(DateTime|string $userRegistered): void
     {
         $this->userRegistered = $userRegistered;
     }

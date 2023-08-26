@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Table(
     name: 'posts',
@@ -27,10 +28,10 @@ class WpPosts
     private string|int $postAuthor = '0';
 
     #[ORM\Column(name: 'post_date', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $postDate = '0000-00-00 00:00:00';
+    private string|DateTime $postDate = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'post_date_gmt', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $postDateGmt = '0000-00-00 00:00:00';
+    private string|DateTime $postDateGmt = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'post_content', type: 'text', length: 0, nullable: false)]
     private string $postContent;
@@ -63,10 +64,10 @@ class WpPosts
     private string $pinged;
 
     #[ORM\Column(name: 'post_modified', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $postModified = '0000-00-00 00:00:00';
+    private string|DateTime $postModified = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'post_modified_gmt', type: 'datetime', nullable: false, options: ['default' => '0000-00-00 00:00:00'])]
-    private string|\DateTime $postModifiedGmt = '0000-00-00 00:00:00';
+    private string|DateTime $postModifiedGmt = '0000-00-00 00:00:00';
 
     #[ORM\Column(name: 'post_content_filtered', type: 'text', length: 0, nullable: false)]
     private string $postContentFiltered;
@@ -104,22 +105,22 @@ class WpPosts
         $this->postAuthor = $postAuthor;
     }
 
-    public function getPostDate(): \DateTime|string
+    public function getPostDate(): DateTime|string
     {
         return $this->postDate;
     }
 
-    public function setPostDate(\DateTime|string $postDate): void
+    public function setPostDate(DateTime|string $postDate): void
     {
         $this->postDate = $postDate;
     }
 
-    public function getPostDateGmt(): \DateTime|string
+    public function getPostDateGmt(): DateTime|string
     {
         return $this->postDateGmt;
     }
 
-    public function setPostDateGmt(\DateTime|string $postDateGmt): void
+    public function setPostDateGmt(DateTime|string $postDateGmt): void
     {
         $this->postDateGmt = $postDateGmt;
     }
@@ -224,22 +225,22 @@ class WpPosts
         $this->pinged = $pinged;
     }
 
-    public function getPostModified(): \DateTime|string
+    public function getPostModified(): DateTime|string
     {
         return $this->postModified;
     }
 
-    public function setPostModified(\DateTime|string $postModified): void
+    public function setPostModified(DateTime|string $postModified): void
     {
         $this->postModified = $postModified;
     }
 
-    public function getPostModifiedGmt(): \DateTime|string
+    public function getPostModifiedGmt(): DateTime|string
     {
         return $this->postModifiedGmt;
     }
 
-    public function setPostModifiedGmt(\DateTime|string $postModifiedGmt): void
+    public function setPostModifiedGmt(DateTime|string $postModifiedGmt): void
     {
         $this->postModifiedGmt = $postModifiedGmt;
     }

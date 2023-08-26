@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Plugin Name: WP Password bcrypt
  * Plugin URI:  https://github.com/roots/wp-password-bcrypt
@@ -34,7 +36,7 @@
  *
  * @SuppressWarnings(PHPMD.CamelCaseVariableName) $wp_hasher
  */
-function wp_check_password(string $password, string $hash, ?int $userId = null): bool
+function wp_check_password(string $password, string $hash, int $userId = null): bool
 {
     if (!password_needs_rehash($hash, \PASSWORD_DEFAULT, apply_filters('wp_hash_password_options', []))) {
         return (bool) apply_filters(
@@ -84,8 +86,8 @@ function wp_set_password(string $password, int $user_id): string
     $hash = wp_hash_password($password);
     $isApiRequest = apply_filters(
         'application_password_is_api_request',
-        (\defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) ||
-        (\defined('REST_REQUEST') && REST_REQUEST)
+        (\defined('XMLRPC_REQUEST') && XMLRPC_REQUEST)
+        || (\defined('REST_REQUEST') && REST_REQUEST)
     );
 
     if (!$isApiRequest) {
@@ -102,8 +104,8 @@ function wp_set_password(string $password, int $user_id): string
     }
 
     if (
-        !class_exists('WP_Application_Passwords') ||
-        empty($passwords = WP_Application_Passwords::get_user_application_passwords($user_id))
+        !class_exists('WP_Application_Passwords')
+        || empty($passwords = WP_Application_Passwords::get_user_application_passwords($user_id))
     ) {
         return '';
     }
